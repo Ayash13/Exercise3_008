@@ -86,7 +86,14 @@ namespace Exercise3_008
                 Console.WriteLine("Insertion complete" + newode.next = LAST.next);
            
         }
-       
+        public void DeleteNode()
+        {
+            if (listEmpty())
+                Console.WriteLine("List is empty");
+            else
+                Console.WriteLine("Delete node" + LAST.next == current.next);
+        }
+
         static void Main(string[] args)
         {
             CirCularList obj = new CirCularList();
@@ -142,7 +149,14 @@ namespace Exercise3_008
                                
                             }
                             break;
-                       
+                        case '5':
+                            {
+                                obj.DeleteNode();
+
+                            }
+                            break;
+
+
                         case '6':
                             return;
                         default:
