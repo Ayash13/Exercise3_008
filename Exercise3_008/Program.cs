@@ -15,6 +15,10 @@ namespace Exercise3_008
     }
     class CirCularList
     {
-
+        Node LAST;
+        public CirCularList()
+        {
+            LAST = null;
+        }
     }
 }   
