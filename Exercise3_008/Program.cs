@@ -39,5 +39,22 @@ namespace Exercise3_008
             else
                 return false;
         }
+        public void traverse()/*Traverses all the nodes of the list*/
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
+                Console.WriteLine("Recorcd in the list are : ");
+                Node currentNode;
+                currentNode = LAST.next;
+                while (currentNode != LAST)
+                {
+                    Console.Write(currentNode.rollNumber + "  " + currentNode.name + " ");
+                    currentNode = currentNode.next;
+                }
+                Console.Write(LAST.rollNumber + "  " + LAST.name + " ");
+            }
+        }
     }
 }   
