@@ -20,5 +20,17 @@ namespace Exercise3_008
         {
             LAST = null;
         }
+        public bool Search(int rollNo, ref Node previous, ref Node current)
+        {
+            for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
+            {
+                if (rollNo == current.rollNumber)
+                    return (true);/*returns true if the node is found*/
+            }
+            if (rollNo == LAST.rollNumber)/*If the node is present at the end*/
+                return true;
+            else
+                return (false);/*returns false if the node is not found*/
+        }
     }
 }   
