@@ -55,6 +55,14 @@ namespace Exercise3_008
                 }
                 Console.Write(LAST.rollNumber + "  " + LAST.name + " ");
             }
+           
+        }
+        public void firstNode()
+        {
+            if (listEmpty())
+                Console.WriteLine("List is empty");
+            else
+                Console.WriteLine("The forst record in the list is : " + LAST.next.rollNumber + "     " + LAST.next.name);
         }
     }
 }   
