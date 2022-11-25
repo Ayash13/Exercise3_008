@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq; 
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text; 
 using System.Threading.Tasks;
 
@@ -12,17 +13,24 @@ namespace Exercise3_008
         public int rollNumber;
         public string name;
         public Node next;
+        public int info;
+        public Node link;
+
     }
+
     class CirCularList
     {
         Node LAST;
+        Node newNode;
+        Node dell;
+
         public CirCularList()
         {
             LAST = null;
         }
-        public bool Search(int rollNo, ref Node previous, ref Node current)
+        public bool Search(int rollNo, ref Node previous, ref Node current, ref Node dell, ref Node newNode)
         {
-            for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
+            for (previous = current = LAST.next; current != LAST; previous = current, current = current.next, dell = LAST.next = current.next)
             {
                 if (rollNo == current.rollNumber)
                     return (true);/*returns true if the node is found*/
@@ -46,12 +54,17 @@ namespace Exercise3_008
             else
             {
                 Console.WriteLine("Recorcd in the list are : ");
-                Node currentNode;
+                Node currentNode, dellNode, insert;
                 currentNode = LAST.next;
+                dellNode = LAST.next = currentNode.next;
+                insert = LAST.next = newNode;
                 while (currentNode != LAST)
                 {
                     Console.Write(currentNode.rollNumber + "  " + currentNode.name + " ");
+                    Console.Write(dellNode.rollNumber + "  " + dellNode.name + "  ");
+                    Console.WriteLine("");
                     currentNode = currentNode.next;
+                    dellNode = currentNode.next;
                 }
                 Console.Write(LAST.rollNumber + "  " + LAST.name + " ");
             }
@@ -64,6 +77,16 @@ namespace Exercise3_008
             else
                 Console.WriteLine("The forst record in the list is : " + LAST.next.rollNumber + "     " + LAST.next.name);
         }
+        public void InsertAfter()
+        {
+            //Create function to insert Ndoe
+            if (listEmpty())
+                Console.WriteLine("List is empty");
+            else
+                Console.WriteLine("Insertion complete" + newode.next = LAST.next);
+           
+        }
+       
         static void Main(string[] args)
         {
             CirCularList obj = new CirCularList();
@@ -75,8 +98,10 @@ namespace Exercise3_008
                     Console.WriteLine("1. View all the record in the list");
                     Console.WriteLine("2. Search for a record in the list");
                     Console.WriteLine("3. Display the first record in the list");
-                    Console.WriteLine("Exit");
-                    Console.WriteLine("Enter your choice (1-4)");
+                    Console.WriteLine("4. Insert Node");
+                    Console.WriteLine("5. Dellete Node");
+                    Console.WriteLine("6. Exit");
+                    Console.WriteLine("Enter your choice (1-6)");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
@@ -112,6 +137,13 @@ namespace Exercise3_008
                             }
                             break;
                         case '4':
+                            {
+                                obj.InsertAfter();
+                               
+                            }
+                            break;
+                       
+                        case '6':
                             return;
                         default:
                             {
